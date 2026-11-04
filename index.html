@@ -1,123 +1,429 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#070b16">
 <title>JET ENGINE | Science Exhibition</title>
+
 <style>
-:root{--bg:#070b16;--panel:#101a2d;--panel2:#0c1425;--gold:#e6bd72;--cyan:#70d9ee;--white:#f3f6fb;--muted:#a8b4c8;--line:rgba(255,255,255,.12)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--white);font-family:Inter,Segoe UI,Arial,sans-serif;line-height:1.65;overflow-x:hidden}
-body:before{content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;background:radial-gradient(ellipse at 80% 5%,rgba(32,105,150,.2),transparent 38%),radial-gradient(ellipse at 5% 60%,rgba(148,105,48,.12),transparent 35%),linear-gradient(180deg,#080d1a,#050812)}
-a{color:inherit;text-decoration:none}.wrap{width:min(1120px,90%);margin:auto}
-nav{position:fixed;top:0;width:100%;z-index:20;background:rgba(5,9,18,.78);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
-.navin{height:72px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:13px;letter-spacing:3px;font-weight:800}.brand span{color:var(--gold)}.links{display:flex;gap:26px;font-size:12px;letter-spacing:1px;text-transform:uppercase;color:#c2ccda}.links a:hover{color:var(--gold)}.menu{display:none;background:none;border:1px solid var(--line);color:white;padding:8px 12px;border-radius:8px}
-.hero{min-height:760px;display:grid;align-items:center;padding:130px 0 80px;position:relative;overflow:hidden}
-.eyebrow{color:var(--gold);letter-spacing:4px;text-transform:uppercase;font-size:11px;font-weight:700}.hero h1{font-size:clamp(48px,8vw,100px);line-height:.98;letter-spacing:-4px;margin:20px 0}.hero h1 span{color:var(--gold)}.lead{max-width:590px;color:#b6c2d4;font-size:17px}.actions{display:flex;gap:14px;flex-wrap:wrap;margin-top:30px}.btn{padding:13px 21px;border-radius:4px;border:1px solid var(--gold);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;transition:.25s}.btn.primary{background:var(--gold);color:#111827}.btn:hover{transform:translateY(-3px);box-shadow:0 10px 30px #0006}.heroart{position:absolute;right:-8%;top:17%;width:58%;max-width:760px;opacity:.92;pointer-events:none;animation:float 7s ease-in-out infinite}
-@keyframes float{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-15px) rotate(1deg)}}
-section{padding:100px 0;border-top:1px solid var(--line)}.section-head{max-width:680px;margin-bottom:42px}.kicker{color:var(--cyan);font-size:11px;letter-spacing:3px;text-transform:uppercase}.section-head h2{font-size:clamp(32px,5vw,54px);letter-spacing:-1.5px;line-height:1.1;margin:12px 0}.section-head p,.muted{color:var(--muted)}
-.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.card{background:linear-gradient(145deg,rgba(20,34,57,.9),rgba(10,17,31,.92));border:1px solid var(--line);padding:26px;border-radius:10px;transition:.3s}.card:hover{transform:translateY(-6px);border-color:#b99156;box-shadow:0 18px 40px #0004}.num{color:var(--gold);font-size:12px;letter-spacing:2px}.card h3{margin:10px 0 7px;font-size:19px}.card p{color:var(--muted);font-size:14px;margin:0}
-.split{display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}.diagram{padding:20px;background:#0a1323;border:1px solid var(--line);border-radius:12px}.diagram svg{width:100%;height:auto}.note{border-left:2px solid var(--gold);padding:14px 18px;background:#ffffff08;color:#c6d0df;margin-top:22px;font-size:14px}
-.steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.step{padding:18px 14px;border-top:2px solid var(--cyan);background:#101b2e;border-radius:0 0 8px 8px}.step b{display:block;color:var(--gold);font-size:12px;letter-spacing:1px;margin-bottom:8px}.step span{font-size:13px;color:#c1cada}
-.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}.tab{cursor:pointer;border:1px solid var(--line);background:#0d1728;color:#cbd5e1;padding:10px 16px;border-radius:4px}.tab.active{background:var(--gold);color:#101827;border-color:var(--gold)}.tabcontent{padding:26px;border:1px solid var(--line);background:var(--panel2);border-radius:8px;min-height:130px}.tabcontent h3{margin-top:0}
-.factrow{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}.fact{padding:22px;border:1px solid var(--line);border-radius:8px;background:#ffffff06}.fact strong{display:block;color:var(--gold);font-size:25px}.fact small{color:var(--muted)}
-.quiz{max-width:720px;padding:28px;background:var(--panel);border:1px solid var(--line);border-radius:10px}.quiz button.option{display:block;width:100%;text-align:left;margin:9px 0;padding:12px 15px;background:#0b1424;color:#e9eef7;border:1px solid var(--line);border-radius:6px;cursor:pointer}.quiz button.option:hover{border-color:var(--gold)}#feedback{color:var(--cyan);min-height:28px;margin-top:12px}
-footer{padding:45px 0;color:#8290a6;font-size:12px;border-top:1px solid var(--line)}.footerin{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
-.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}.reveal.show{opacity:1;transform:none}
-@media(max-width:800px){.heroart{width:95%;right:-30%;top:28%;opacity:.32}.hero{min-height:700px}.grid{grid-template-columns:1fr 1fr}.steps{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}.links{display:none;position:absolute;top:72px;left:0;right:0;padding:20px;background:#080e1b;flex-direction:column}.links.open{display:flex}.menu{display:block}}
-@media(max-width:520px){.grid,.factrow{grid-template-columns:1fr}.hero h1{letter-spacing:-2px}.steps{grid-template-columns:1fr}.hero{min-height:670px}.navin{height:64px}.links{top:64px}section{padding:75px 0}}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ background:#070b16;color:#f3f6fb;
+ font-family:Arial, sans-serif;overflow-x:hidden;
+}
+nav{
+ position:fixed;top:0;width:100%;z-index:10;
+ padding:20px 7%;display:flex;justify-content:space-between;
+ background:#070b16df;backdrop-filter:blur(15px);
+ border-bottom:1px solid #ffffff20;
+}
+.logo{letter-spacing:3px;font-weight:bold}
+.logo span{color:#e6bd72}
+nav a{color:white;text-decoration:none;margin-left:22px;font-size:12px}
+nav a:hover{color:#e6bd72}
+.hero{
+ min-height:100vh;padding:150px 8% 80px;
+ display:flex;align-items:center;position:relative;overflow:hidden;
+ background:radial-gradient(ellipse at 80% 50%,#12334d 0%,#070b16 60%);
+}
+.hero-content{position:relative;z-index:2;max-width:650px}
+.tag{color:#e6bd72;letter-spacing:4px;font-size:12px}
+h1{font-size:clamp(55px,9vw,105px);line-height:.95;margin:25px 0;letter-spacing:-4px}
+h1 span{color:#e6bd72}
+.hero p{color:#b5c3d5;line-height:1.8;max-width:530px}
+.btn{
+ display:inline-block;margin-top:28px;padding:14px 22px;
+ background:#e6bd72;color:#111;text-decoration:none;
+ font-weight:bold;border:0;cursor:pointer;
+}
+.btn:hover{background:white;transform:translateY(-3px)}
+.engine-art{
+ position:absolute;width:65%;right:-12%;top:25%;
+ animation:float 6s ease-in-out infinite;
+ filter:drop-shadow(0 0 35px #55d8ef40);
+}
+@keyframes float{50%{transform:translateY(-18px) rotate(2deg)}}
+.flame{animation:flame .5s infinite alternate;transform-origin:center}
+@keyframes flame{to{opacity:.5;transform:scaleX(1.2)}}
+.particle{animation:flow 2s linear infinite}
+@keyframes flow{from{transform:translateX(-50px);opacity:0}to{transform:translateX(80px);opacity:1}}
+.sound-btn{
+ display:block;margin-top:18px;padding:13px 18px;
+ color:#70d9ee;background:#101a2d;
+ border:1px solid #70d9ee;cursor:pointer;
+ letter-spacing:2px;font-size:11px;
+}
+section{padding:100px 8%;border-top:1px solid #ffffff15}
+.kicker{color:#70d9ee;letter-spacing:3px;font-size:12px}
+h2{font-size:clamp(32px,5vw,52px);margin:15px 0}
+.intro{color:#a8b4c8;max-width:650px;line-height:1.8;margin-bottom:35px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+.card{
+ padding:28px;background:linear-gradient(140deg,#14243a,#0b1423);
+ border:1px solid #ffffff18;border-radius:10px;
+ transition:.3s;
+}
+.card:hover{transform:translateY(-8px);border-color:#e6bd72}
+.card h3{color:#e6bd72;margin:12px 0}
+.card p{color:#a8b4c8;line-height:1.7;font-size:14px}
+.number{color:#70d9ee;letter-spacing:3px;font-size:12px}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.step{background:#111e32;padding:20px;border-top:2px solid #70d9ee}
+.step b{color:#e6bd72;display:block;margin-bottom:10px}
+.step p{color:#a8b4c8;font-size:13px;line-height:1.6}
+.engine-diagram{
+ background:#0d1829;border:1px solid #ffffff20;
+ border-radius:12px;padding:25px;margin-top:35px;
+ overflow:hidden;
+}
+.engine-diagram svg{width:100%;height:auto}
+.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:25px 0}
+.tabs button{
+ padding:12px 16px;background:#111e32;color:white;
+ border:1px solid #ffffff30;cursor:pointer;
+}
+.tabs button.active{background:#e6bd72;color:#111}
+.tab-content{
+ background:#111e32;padding:25px;border-radius:8px;
+ color:#b5c3d5;line-height:1.8;min-height:125px;
+}
+.quiz{max-width:700px;background:#111e32;padding:28px;border-radius:10px}
+.quiz button{
+ display:block;width:100%;padding:13px;margin:10px 0;
+ background:#0b1423;border:1px solid #ffffff30;
+ color:white;text-align:left;cursor:pointer;
+}
+.quiz button:hover{border-color:#e6bd72}
+#feedback{color:#70d9ee;margin-top:15px}
+footer{
+ padding:40px;text-align:center;color:#8595aa;
+ border-top:1px solid #ffffff20;font-size:12px;
+}
+.reveal{opacity:0;transform:translateY(30px);transition:1s}
+.reveal.show{opacity:1;transform:translateY(0)}
+@media(max-width:750px){
+ nav{padding:18px 5%}
+ nav .navlinks{display:none}
+ .hero{padding-top:140px}
+ .engine-art{width:100%;right:-35%;top:38%;opacity:.3}
+ h1{font-size:58px}
+ section{padding:75px 6%}
+}
 </style>
 </head>
+
 <body>
-<nav><div class="wrap navin"><a class="brand" href="#home">ORBITAL<span> / </span>SCIENCE</a><button class="menu" id="menuBtn" aria-label="Open menu">MENU</button><div class="links" id="navLinks"><a href="#overview">Overview</a><a href="#working">How it works</a><a href="#parts">Components</a><a href="#applications">Applications</a><a href="#quiz">Quiz</a></div></div></nav>
 
-<header class="hero" id="home"><div class="wrap">
-<div class="eyebrow">Physics • Science Exhibition • 2026</div>
-<h1>THE POWER<br>OF <span>JET</span><br>PROPULSION.</h1>
-<p class="lead">Discover how jet engines turn moving air and fuel energy into powerful thrust — the science that helps aircraft travel across the skies.</p>
-<div class="actions"><a class="btn primary" href="#working">Explore the science ↗</a><a class="btn" href="#overview">Project overview</a></div>
-<p style="margin-top:36px;color:#7f8da3;font-size:11px;letter-spacing:2px">STUDENT PHYSICS PROJECT · VENKATESWAR ENGLISH MEDIUM SCHOOL</p>
-</div>
-<div class="heroart" aria-hidden="true">
-<svg viewBox="0 0 900 500" fill="none" xmlns="http://www.w3.org/2000/svg">
-<defs><linearGradient id="metal" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#f4d79b"/><stop offset=".45" stop-color="#9baec3"/><stop offset="1" stop-color="#354b66"/></linearGradient><linearGradient id="flame"><stop stop-color="#fff2bd"/><stop offset=".35" stop-color="#66d9ef"/><stop offset="1" stop-color="#2877bc" stop-opacity="0"/></linearGradient></defs>
-<path d="M90 248 L310 211 L715 215 Q770 220 790 250 Q770 280 715 285 L310 289 L90 252Z" fill="#172941" stroke="#9bb2c9" stroke-width="3"/>
-<path d="M310 211 L390 170 L670 205 L715 215 L310 230Z" fill="url(#metal)" opacity=".85"/>
-<path d="M310 289 L390 330 L670 295 L715 285 L310 270Z" fill="#344b67" stroke="#9bb2c9" stroke-width="2"/>
-<path d="M80 250 L18 228 L18 272Z" fill="url(#flame)" opacity=".9"/>
-<path d="M105 250 L20 240 M105 258 L30 270" stroke="#72dff4" stroke-width="5" stroke-linecap="round" opacity=".75"/>
-<ellipse cx="310" cy="250" rx="30" ry="40" fill="#0b1424" stroke="#e6bd72" stroke-width="4"/>
-<path d="M310 212 L310 288 M290 220 L330 280 M330 220 L290 280" stroke="#dce8f5" stroke-width="5"/>
-<path d="M390 226 L630 226 L680 240 L680 260 L630 274 L390 274Z" fill="#0b1728" stroke="#91a8c1" stroke-width="2"/>
-<path d="M430 230 L450 270 M470 230 L490 270 M510 230 L530 270" stroke="#e6bd72" stroke-width="5"/>
-<path d="M685 235 L850 250 L685 265Z" fill="url(#flame)" opacity=".9"/>
-<path d="M720 242 L875 250 L720 258" stroke="#74dff4" stroke-width="3" opacity=".8"/>
-<g fill="#e6bd72"><circle cx="310" cy="180" r="3"/><circle cx="470" cy="180" r="2"/><circle cx="650" cy="180" r="3"/></g>
-<g stroke="#90a9c4" opacity=".6"><path d="M250 150H690"/><path d="M250 350H690"/></g>
-</svg></div></header>
+<nav>
+ <div class="logo">ORBITAL <span>/ SCIENCE</span></div>
+ <div class="navlinks">
+  <a href="#about">ABOUT</a>
+  <a href="#working">WORKING</a>
+  <a href="#parts">COMPONENTS</a>
+  <a href="#quiz">QUIZ</a>
+ </div>
+</nav>
 
-<main>
-<section id="overview"><div class="wrap"><div class="section-head reveal"><div class="kicker">01 / Project overview</div><h2>What is a jet engine?</h2><p>A jet engine is a machine that produces thrust by accelerating a stream of gas backwards. It works on Newton’s Third Law of Motion: every action has an equal and opposite reaction.</p></div>
-<div class="grid">
-<article class="card reveal"><div class="num">01 — PRINCIPLE</div><h3>Newton’s Third Law</h3><p>The engine pushes hot gases backwards. In reaction, the engine and aircraft are pushed forwards.</p></article>
-<article class="card reveal"><div class="num">02 — ENERGY</div><h3>Energy conversion</h3><p>Chemical energy in fuel becomes thermal energy, then kinetic energy in fast-moving exhaust gases.</p></article>
-<article class="card reveal"><div class="num">03 — PURPOSE</div><h3>Powerful thrust</h3><p>The thrust generated by the engine overcomes drag and helps an aircraft accelerate and fly.</p></article>
-</div></div></section>
+<header class="hero">
+ <div class="hero-content">
+  <div class="tag">PHYSICS • SCIENCE EXHIBITION • 2026</div>
+  <h1>THE POWER<br>OF <span>JET</span><br>PROPULSION.</h1>
+  <p>
+   Discover the incredible science behind jet engines.
+   Explore how air, fuel and physics combine to produce
+   the powerful thrust that takes aircraft into the sky.
+  </p>
+  <a href="#working" class="btn">EXPLORE THE ENGINE ↗</a>
+  <button class="sound-btn" id="soundBtn">▶ START ENGINE SOUND</button>
+  <p style="margin-top:25px;font-size:11px;letter-spacing:2px">
+   VENKATESWAR ENGLISH MEDIUM SCHOOL
+  </p>
+ </div>
 
-<section id="working"><div class="wrap"><div class="split"><div class="reveal"><div class="kicker">02 / The science</div><h2 style="font-size:clamp(32px,5vw,54px);line-height:1.1">How does it work?</h2><p class="muted">A typical turbojet follows four main stages. Air enters the front, gets compressed, mixes with fuel and burns, and finally leaves at high speed through the nozzle.</p>
-<div class="note"><b style="color:var(--gold)">The key idea:</b> The engine does not push against the air outside like a propeller. It creates thrust by changing the momentum of the air flowing through it.</div></div>
-<div class="diagram reveal"><svg viewBox="0 0 650 260" xmlns="http://www.w3.org/2000/svg">
-<defs><linearGradient id="core" x1="0" x2="1"><stop stop-color="#55cfe8"/><stop offset=".5" stop-color="#e5bd74"/><stop offset="1" stop-color="#f18c54"/></linearGradient></defs>
-<path d="M30 105H615L580 155H30Z" fill="#172a43" stroke="#9fb2c8" stroke-width="2"/>
-<path d="M30 130H610" stroke="#d7e5f4" stroke-width="2" stroke-dasharray="8 8"/>
-<g fill="#65d8ed"><path d="M70 92l28 38-28 38 10-38Z"/><path d="M120 98l24 32-24 32 8-32Z"/></g>
-<g fill="#e5bd74"><path d="M210 104l15 26-15 26 7-26Z"/><path d="M245 104l15 26-15 26 7-26Z"/><path d="M280 104l15 26-15 26 7-26Z"/></g>
-<path d="M335 108Q370 78 410 130Q370 182 335 152Z" fill="url(#core)" opacity=".9"/>
-<path d="M435 110L520 118L520 142L435 150Z" fill="#e88c50" opacity=".8"/>
-<path d="M520 118L620 130L520 142Z" fill="#6dd8ee" opacity=".8"/>
-<g fill="#dbe6f4" font-size="12" text-anchor="middle"><text x="85" y="65">INLET</text><text x="245" y="65">COMPRESSOR</text><text x="375" y="65">COMBUSTOR</text><text x="485" y="65">TURBINE</text><text x="570" y="190">NOZZLE</text></g>
-<g stroke="#e6bd72" stroke-width="1.5"><path d="M85 72V95"/><path d="M245 72V100"/><path d="M375 72V95"/><path d="M485 72V105"/></g>
-</svg><p class="muted" style="font-size:12px;margin:8px 0 0">Simplified educational diagram — not to scale.</p></div></div>
-<div style="margin-top:45px" class="reveal"><div class="steps">
-<div class="step"><b>01 / INTAKE</b><span>Air enters through the inlet.</span></div><div class="step"><b>02 / COMPRESSION</b><span>Compressor blades raise air pressure.</span></div><div class="step"><b>03 / COMBUSTION</b><span>Fuel burns with compressed air, adding energy.</span></div><div class="step"><b>04 / TURBINE</b><span>Hot gas spins the turbine, which drives the compressor.</span></div><div class="step"><b>05 / EXHAUST</b><span>The nozzle accelerates gas backwards to create thrust.</span></div>
-</div></div></div></section>
+ <div class="engine-art">
+ <svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient id="metal">
+   <stop stop-color="#f4d79b"/>
+   <stop offset=".5" stop-color="#9baec3"/>
+   <stop offset="1" stop-color="#354b66"/>
+  </linearGradient>
+  <linearGradient id="fire">
+   <stop stop-color="#fff2bd"/>
+   <stop offset=".4" stop-color="#66d9ef"/>
+   <stop offset="1" stop-color="#2877bc" stop-opacity="0"/>
+  </linearGradient>
+ </defs>
+ <path d="M100 248L310 211H715Q780 220 800 250Q780 280 715 289L310 289Z"
+ fill="#172941" stroke="#9bb2c9" stroke-width="4"/>
+ <path d="M310 211L390 170L670 205L715 215H310Z"
+ fill="url(#metal)"/>
+ <path d="M310 289L390 330L670 295L715 285H310Z"
+ fill="#344b67" stroke="#9bb2c9" stroke-width="2"/>
+ <ellipse cx="310" cy="250" rx="30" ry="40"
+ fill="#0b1424" stroke="#e6bd72" stroke-width="4"/>
+ <path d="M310 212V288M290 220L330 280M330 220L290 280"
+ stroke="#dce8f5" stroke-width="5"/>
+ <path d="M390 226H630L680 240V260L630 274H390Z"
+ fill="#0b1728" stroke="#91a8c1" stroke-width="2"/>
+ <path d="M430 230L450 270M470 230L490 270M510 230L530 270"
+ stroke="#e6bd72" stroke-width="5"/>
+ <path class="flame" d="M685 235L850 250L685 265Z" fill="url(#fire)"/>
+ <path class="flame" d="M720 242L890 250L720 258"
+ stroke="#74dff4" stroke-width="4"/>
+ <g fill="#70d9ee">
+  <circle class="particle" cx="50" cy="238" r="4"/>
+  <circle class="particle" cx="100" cy="265" r="3"/>
+  <circle class="particle" cx="145" cy="245" r="4"/>
+ </g>
+ </svg>
+ </div>
+</header>
 
-<section id="parts"><div class="wrap"><div class="section-head reveal"><div class="kicker">03 / Engine anatomy</div><h2>Explore the main components</h2><p>Select a component to learn what it does inside the engine.</p></div>
-<div class="tabs reveal" role="tablist"><button class="tab active" data-tab="inlet">Air inlet</button><button class="tab" data-tab="compressor">Compressor</button><button class="tab" data-tab="combustor">Combustion chamber</button><button class="tab" data-tab="turbine">Turbine</button><button class="tab" data-tab="nozzle">Nozzle</button></div>
-<div class="tabcontent reveal" id="tabContent"><h3>Air inlet</h3><p class="muted">The inlet guides outside air smoothly into the engine. Good airflow helps the engine operate efficiently and reliably.</p></div>
-</div></section>
+<section id="about">
+ <div class="kicker">01 / INTRODUCTION</div>
+ <h2>What is a Jet Engine?</h2>
+ <p class="intro">
+ A jet engine is a machine that produces thrust by accelerating
+ a stream of gases backwards. It works on Newton's Third Law
+ of Motion: every action has an equal and opposite reaction.
+ </p>
+ <div class="grid">
+  <div class="card">
+   <div class="number">01 — PRINCIPLE</div>
+   <h3>Newton's Third Law</h3>
+   <p>The engine pushes gases backwards, creating a forward reaction force called thrust.</p>
+  </div>
+  <div class="card">
+   <div class="number">02 — ENERGY</div>
+   <h3>Energy Conversion</h3>
+   <p>Chemical energy in fuel becomes thermal energy and then kinetic energy in moving gases.</p>
+  </div>
+  <div class="card">
+   <div class="number">03 — PURPOSE</div>
+   <h3>Powerful Thrust</h3>
+   <p>Thrust helps aircraft overcome drag and accelerate through the air.</p>
+  </div>
+ </div>
+</section>
 
-<section id="applications"><div class="wrap"><div class="section-head reveal"><div class="kicker">04 / Beyond the classroom</div><h2>Where are jet engines used?</h2><p>Jet propulsion has transformed modern aviation and space technology.</p></div>
-<div class="grid">
-<article class="card reveal"><div class="num">AVIATION</div><h3>Passenger aircraft</h3><p>Turbofan engines power many commercial airliners, moving large amounts of air efficiently.</p></article>
-<article class="card reveal"><div class="num">DEFENCE</div><h3>Military aircraft</h3><p>Turbojet and turbofan designs are used in many high-performance aircraft.</p></article>
-<article class="card reveal"><div class="num">SPACE</div><h3>Rocket comparison</h3><p>Jet engines need atmospheric oxygen. Rockets carry their own oxidizer, allowing operation in space.</p></article>
-</div>
-<div class="factrow reveal" style="margin-top:18px"><div class="fact"><strong>Action</strong><small>Gas is accelerated backwards</small></div><div class="fact"><strong>Reaction</strong><small>Forward thrust is produced</small></div><div class="fact"><strong>Result</strong><small>The aircraft can accelerate</small></div></div>
-</div></section>
+<section id="working">
+ <div class="kicker">02 / THE SCIENCE</div>
+ <h2>How Does It Work?</h2>
+ <p class="intro">
+ A typical turbojet engine works through five main stages.
+ </p>
+ <div class="steps">
+  <div class="step"><b>01 / INTAKE</b><p>Air enters through the front inlet.</p></div>
+  <div class="step"><b>02 / COMPRESSION</b><p>Compressor blades increase air pressure.</p></div>
+  <div class="step"><b>03 / COMBUSTION</b><p>Fuel mixes with compressed air and burns.</p></div>
+  <div class="step"><b>04 / TURBINE</b><p>Hot gases spin the turbine blades.</p></div>
+  <div class="step"><b>05 / EXHAUST</b><p>The nozzle accelerates gases backwards to produce thrust.</p></div>
+ </div>
+ <div class="engine-diagram">
+  <svg viewBox="0 0 700 220">
+   <path d="M25 80H670L630 145H25Z" fill="#172a43" stroke="#9fb2c8" stroke-width="2"/>
+   <path d="M25 112H660" stroke="#70d9ee" stroke-dasharray="8 8" stroke-width="3"/>
+   <g fill="#70d9ee">
+    <path d="M70 85L95 112L70 140L80 112Z"/>
+    <path d="M115 85L140 112L115 140L125 112Z"/>
+   </g>
+   <g fill="#e6bd72">
+    <path d="M220 85L240 112L220 140L230 112Z"/>
+    <path d="M260 85L280 112L260 140L270 112Z"/>
+   </g>
+   <path d="M330 85Q390 55 430 112Q390 170 330 140Z" fill="#e6bd72"/>
+   <path d="M450 90H550V135H450Z" fill="#c77c50"/>
+   <path d="M550 90L670 112L550 135Z" fill="#70d9ee"/>
+   <g fill="white" font-size="12" text-anchor="middle">
+    <text x="80" y="50">INLET</text>
+    <text x="245" y="50">COMPRESSOR</text>
+    <text x="380" y="40">COMBUSTION</text>
+    <text x="500" y="50">TURBINE</text>
+    <text x="610" y="175">NOZZLE</text>
+   </g>
+  </svg>
+  <p style="color:#8da1ba;font-size:12px">Simplified educational diagram — not to scale.</p>
+ </div>
+</section>
 
-<section id="quiz"><div class="wrap"><div class="section-head reveal"><div class="kicker">05 / Test your knowledge</div><h2>Mission control quiz</h2><p>Try this quick question to check what you have learned.</p></div>
-<div class="quiz reveal"><div class="num">QUESTION 01</div><h3>Which law of motion explains the thrust produced by a jet engine?</h3>
-<button class="option" data-correct="false">A. Newton’s First Law</button><button class="option" data-correct="false">B. Newton’s Second Law</button><button class="option" data-correct="true">C. Newton’s Third Law</button><button class="option" data-correct="false">D. Law of Gravitation</button><div id="feedback" aria-live="polite"></div><button class="btn" id="resetQuiz" style="background:transparent;color:var(--gold);margin-top:8px">Try again ↻</button></div>
-</div></section>
+<section id="parts">
+ <div class="kicker">03 / ENGINE ANATOMY</div>
+ <h2>Explore Engine Components</h2>
+ <p class="intro">Click on each component to discover its function.</p>
+ <div class="tabs">
+  <button class="active" data-part="inlet">Air Inlet</button>
+  <button data-part="compressor">Compressor</button>
+  <button data-part="combustor">Combustion</button>
+  <button data-part="turbine">Turbine</button>
+  <button data-part="nozzle">Nozzle</button>
+ </div>
+ <div class="tab-content" id="partInfo">
+  <h3>Air Inlet</h3>
+  The inlet guides outside air smoothly into the engine.
+ </div>
+</section>
 
-<section><div class="wrap"><div class="section-head reveal"><div class="kicker">06 / Conclusion</div><h2>From physics to flight.</h2><p>A jet engine is an impressive application of physics. By compressing air, adding energy through combustion and accelerating exhaust gases, it produces thrust. It brings together Newton’s laws, energy conversion, fluid motion and thermodynamics in one remarkable machine.</p></div><div class="note reveal"><b style="color:var(--gold)">Thank you!</b> Presented as a physics science exhibition project at Venkateswar English Medium School.</div></div></section>
-</main>
-<footer><div class="wrap footerin"><span>ORBITAL / SCIENCE — JET ENGINE PROJECT</span><span>Learn • Explore • Innovate</span><span>Educational project website</span></div></footer>
+<section>
+ <div class="kicker">04 / REAL WORLD</div>
+ <h2>Applications of Jet Engines</h2>
+ <div class="grid">
+  <div class="card"><h3>Passenger Aircraft</h3><p>Turbofan engines power modern commercial aircraft.</p></div>
+  <div class="card"><h3>Military Aircraft</h3><p>High-performance aircraft use turbojet and turbofan engines.</p></div>
+  <div class="card"><h3>Space Technology</h3><p>Rocket engines differ from jets because rockets carry their own oxidizer.</p></div>
+ </div>
+</section>
+
+<section id="quiz">
+ <div class="kicker">05 / MISSION CONTROL</div>
+ <h2>Test Your Knowledge</h2>
+ <div class="quiz">
+  <h3>Which law explains jet engine thrust?</h3>
+  <button data-answer="wrong">A. Newton's First Law</button>
+  <button data-answer="wrong">B. Newton's Second Law</button>
+  <button data-answer="correct">C. Newton's Third Law</button>
+  <button data-answer="wrong">D. Law of Gravitation</button>
+  <div id="feedback"></div>
+ </div>
+</section>
+
+<section>
+ <div class="kicker">06 / CONCLUSION</div>
+ <h2>From Physics to Flight.</h2>
+ <p class="intro">
+ Jet engines demonstrate the incredible power of physics.
+ Through air compression, combustion and exhaust acceleration,
+ they convert fuel energy into thrust and make modern aviation possible.
+ </p>
+ <h3 style="color:#e6bd72">THANK YOU!</h3>
+ <p style="color:#a8b4c8;margin-top:10px">
+ Presented at Venkateswar English Medium School.
+ </p>
+</section>
+
+<footer>
+ ORBITAL / SCIENCE — JET ENGINE PROJECT<br><br>
+ LEARN • EXPLORE • INNOVATE
+</footer>
+
 <script>
-const menuBtn=document.getElementById('menuBtn'),navLinks=document.getElementById('navLinks');
-menuBtn.addEventListener('click',()=>navLinks.classList.toggle('open'));
-navLinks.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>navLinks.classList.remove('open')));
-const info={
-inlet:['Air inlet','The inlet guides outside air smoothly into the engine. Good airflow helps the engine operate efficiently and reliably.'],
-compressor:['Compressor','A series of rotating and stationary blades compresses the incoming air. This raises its pressure before it enters the combustion chamber.'],
-combustor:['Combustion chamber','Fuel is sprayed into the compressed air and burned continuously. The hot, high-energy gas expands and flows towards the turbine.'],
-turbine:['Turbine','Hot gases pass through turbine blades and make them spin. A shaft connects the turbine to the compressor, supplying the power it needs.'],
-nozzle:['Exhaust nozzle','The nozzle directs and accelerates the exhaust flow backwards. The change in momentum produces forward thrust.']
+// INTERACTIVE ENGINE COMPONENTS
+const parts={
+ inlet:["Air Inlet","The inlet guides outside air smoothly into the engine."],
+ compressor:["Compressor","Rotating and stationary blades compress incoming air and increase its pressure."],
+ combustor:["Combustion Chamber","Fuel is sprayed into compressed air and burned, creating hot high-energy gases."],
+ turbine:["Turbine","Hot gases spin turbine blades. A shaft connects the turbine to the compressor."],
+ nozzle:["Exhaust Nozzle","The nozzle accelerates exhaust gases backwards to generate forward thrust."]
 };
-document.querySelectorAll('.tab').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(b=>b.classList.remove('active'));btn.classList.add('active');const [title,desc]=info[btn.dataset.tab];document.getElementById('tabContent').innerHTML='<h3>'+title+'</h3><p class="muted">'+desc+'</p>';}));
-document.querySelectorAll('.option').forEach(btn=>btn.addEventListener('click',()=>{document.querySelectorAll('.option').forEach(b=>b.style.borderColor='');btn.style.borderColor=btn.dataset.correct==='true'?'#70d9ee':'#d97777';document.getElementById('feedback').textContent=btn.dataset.correct==='true'?'Correct! Newton’s Third Law explains the action–reaction pair that produces thrust.':'Not quite. Think about the action–reaction principle. Try again!';}));
-document.getElementById('resetQuiz').addEventListener('click',()=>{document.querySelectorAll('.option').forEach(b=>b.style.borderColor='');document.getElementById('feedback').textContent=''});
-const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('show');observer.unobserve(e.target)}}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+document.querySelectorAll("[data-part]").forEach(button=>{
+ button.onclick=()=>{
+  document.querySelectorAll("[data-part]").forEach(b=>b.classList.remove("active"));
+  button.classList.add("active");
+  const p=parts[button.dataset.part];
+  document.getElementById("partInfo").innerHTML="<h3>"+p[0]+"</h3>"+p[1];
+ };
+});
+
+// QUIZ
+document.querySelectorAll("[data-answer]").forEach(button=>{
+ button.onclick=()=>{
+  document.getElementById("feedback").textContent=
+   button.dataset.answer==="correct"
+   ?"✓ Correct! Newton's Third Law explains the action-reaction principle."
+   :"✗ Try again! Think about action and reaction.";
+ };
+});
+
+// SCROLL REVEAL
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add("show");
+   observer.unobserve(entry.target);
+  }
+ });
+},{threshold:.12});
+document.querySelectorAll(".card,.step,.engine-diagram").forEach(el=>{
+ el.classList.add("reveal");
+ observer.observe(el);
+});
+
+// SYNTHESIZED JET ENGINE SOUND
+let audio=null,master=null,noise=null,osc=null,soundPlaying=false;
+const soundButton=document.getElementById("soundBtn");
+
+function startSound(){
+ const AC=window.AudioContext||window.webkitAudioContext;
+ if(!AC)return;
+ if(!audio)audio=new AC();
+ if(audio.state==="suspended")audio.resume();
+
+ master=audio.createGain();
+ master.gain.value=0;
+ master.connect(audio.destination);
+
+ // Air-rush noise
+ const buffer=audio.createBuffer(1,audio.sampleRate*2,audio.sampleRate);
+ const data=buffer.getChannelData(0);
+ for(let i=0;i<data.length;i++)data[i]=Math.random()*2-1;
+
+ noise=audio.createBufferSource();
+ noise.buffer=buffer;
+ noise.loop=true;
+
+ const filter=audio.createBiquadFilter();
+ filter.type="lowpass";
+ filter.frequency.value=550;
+
+ const noiseVolume=audio.createGain();
+ noiseVolume.gain.value=.18;
+
+ noise.connect(filter);
+ filter.connect(noiseVolume);
+ noiseVolume.connect(master);
+ noise.start();
+
+ // Turbine hum
+ osc=audio.createOscillator();
+ osc.type="sawtooth";
+ osc.frequency.value=75;
+
+ const toneFilter=audio.createBiquadFilter();
+ toneFilter.type="lowpass";
+ toneFilter.frequency.value=220;
+
+ const toneVolume=audio.createGain();
+ toneVolume.gain.value=.035;
+
+ osc.connect(toneFilter);
+ toneFilter.connect(toneVolume);
+ toneVolume.connect(master);
+ osc.start();
+
+ master.gain.setTargetAtTime(.45,audio.currentTime,.8);
+
+ soundPlaying=true;
+ soundButton.textContent="■ STOP ENGINE SOUND";
+}
+
+function stopSound(){
+ if(!audio||!master)return;
+ master.gain.setTargetAtTime(0,audio.currentTime,.15);
+ const oldNoise=noise,oldOsc=osc;
+ setTimeout(()=>{
+  try{oldNoise.stop();oldOsc.stop()}catch(e){}
+ },700);
+ soundPlaying=false;
+ soundButton.textContent="▶ START ENGINE SOUND";
+}
+
+soundButton.onclick=()=>{
+ if(soundPlaying)stopSound();
+ else startSound();
+};
 </script>
-</body></html>
+
+</body>
+</html>
