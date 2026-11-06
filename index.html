@@ -4,426 +4,312 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>JET ENGINE | Science Exhibition</title>
+<meta name="theme-color" content="#050816">
+<title>THRUST ENGINE | Science Exhibition</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
- background:#070b16;color:#f3f6fb;
- font-family:Arial, sans-serif;overflow-x:hidden;
+font-family:Arial,sans-serif;
+background:#050816;color:white;
+overflow-x:hidden;
 }
+:root{--cyan:#00eaff;--blue:#087cff}
 nav{
- position:fixed;top:0;width:100%;z-index:10;
- padding:20px 7%;display:flex;justify-content:space-between;
- background:#070b16df;backdrop-filter:blur(15px);
- border-bottom:1px solid #ffffff20;
+position:sticky;top:0;z-index:100;
+display:flex;justify-content:space-between;
+align-items:center;padding:17px 7%;
+background:#080e20ed;backdrop-filter:blur(15px);
+border-bottom:1px solid #163a60;
 }
-.logo{letter-spacing:3px;font-weight:bold}
-.logo span{color:#e6bd72}
-nav a{color:white;text-decoration:none;margin-left:22px;font-size:12px}
-nav a:hover{color:#e6bd72}
+.logo{font-size:22px;font-weight:900;color:var(--cyan)}
+nav a{color:white;text-decoration:none;margin-left:18px;font-size:13px}
+nav a:hover{color:var(--cyan)}
 .hero{
- min-height:100vh;padding:150px 8% 80px;
- display:flex;align-items:center;position:relative;overflow:hidden;
- background:radial-gradient(ellipse at 80% 50%,#12334d 0%,#070b16 60%);
+min-height:90vh;display:flex;align-items:center;
+justify-content:center;text-align:center;
+padding:70px 20px;position:relative;
+background:radial-gradient(ellipse at center,#102c54 0%,#050816 70%);
 }
-.hero-content{position:relative;z-index:2;max-width:650px}
-.tag{color:#e6bd72;letter-spacing:4px;font-size:12px}
-h1{font-size:clamp(55px,9vw,105px);line-height:.95;margin:25px 0;letter-spacing:-4px}
-h1 span{color:#e6bd72}
-.hero p{color:#b5c3d5;line-height:1.8;max-width:530px}
+.hero h1{
+font-size:clamp(45px,9vw,95px);
+color:var(--cyan);
+text-shadow:0 0 25px #00d9ff;
+letter-spacing:5px;
+}
+.hero p{margin:20px auto;max-width:650px;color:#b7d8ef;line-height:1.8}
 .btn{
- display:inline-block;margin-top:28px;padding:14px 22px;
- background:#e6bd72;color:#111;text-decoration:none;
- font-weight:bold;border:0;cursor:pointer;
+display:inline-block;padding:14px 25px;margin:10px;
+border:0;border-radius:30px;background:var(--cyan);
+color:#00111d;font-weight:bold;text-decoration:none;cursor:pointer;
+box-shadow:0 0 20px #00eaff55;
 }
-.btn:hover{background:white;transform:translateY(-3px)}
-.engine-art{
- position:absolute;width:65%;right:-12%;top:25%;
- animation:float 6s ease-in-out infinite;
- filter:drop-shadow(0 0 35px #55d8ef40);
+.btn:hover{transform:translateY(-3px);box-shadow:0 0 30px #00eaff}
+.engine{
+margin:40px auto;width:150px;height:150px;
+border:5px solid var(--cyan);border-radius:50%;
+display:flex;align-items:center;justify-content:center;
+font-size:65px;box-shadow:0 0 35px var(--cyan);
+animation:float 3s ease-in-out infinite;
 }
-@keyframes float{50%{transform:translateY(-18px) rotate(2deg)}}
-.flame{animation:flame .5s infinite alternate;transform-origin:center}
-@keyframes flame{to{opacity:.5;transform:scaleX(1.2)}}
-.particle{animation:flow 2s linear infinite}
-@keyframes flow{from{transform:translateX(-50px);opacity:0}to{transform:translateX(80px);opacity:1}}
-.sound-btn{
- display:block;margin-top:18px;padding:13px 18px;
- color:#70d9ee;background:#101a2d;
- border:1px solid #70d9ee;cursor:pointer;
- letter-spacing:2px;font-size:11px;
-}
-section{padding:100px 8%;border-top:1px solid #ffffff15}
-.kicker{color:#70d9ee;letter-spacing:3px;font-size:12px}
-h2{font-size:clamp(32px,5vw,52px);margin:15px 0}
-.intro{color:#a8b4c8;max-width:650px;line-height:1.8;margin-bottom:35px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px}
+@keyframes float{50%{transform:translateY(-15px) rotate(8deg)}}
+@keyframes glow{50%{box-shadow:0 0 35px #00eaff}}
+section{padding:75px 8%;scroll-margin-top:65px}
+.heading{text-align:center;font-size:34px;color:var(--cyan);margin-bottom:35px}
 .card{
- padding:28px;background:linear-gradient(140deg,#14243a,#0b1423);
- border:1px solid #ffffff18;border-radius:10px;
- transition:.3s;
+background:linear-gradient(145deg,#101d38,#091326);
+border:1px solid #164c70;border-radius:18px;
+padding:25px;margin:15px 0;
+box-shadow:0 10px 30px #0005;
 }
-.card:hover{transform:translateY(-8px);border-color:#e6bd72}
-.card h3{color:#e6bd72;margin:12px 0}
-.card p{color:#a8b4c8;line-height:1.7;font-size:14px}
-.number{color:#70d9ee;letter-spacing:3px;font-size:12px}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
-.step{background:#111e32;padding:20px;border-top:2px solid #70d9ee}
-.step b{color:#e6bd72;display:block;margin-bottom:10px}
-.step p{color:#a8b4c8;font-size:13px;line-height:1.6}
-.engine-diagram{
- background:#0d1829;border:1px solid #ffffff20;
- border-radius:12px;padding:25px;margin-top:35px;
- overflow:hidden;
+.card h3{color:var(--cyan);margin-bottom:14px}
+.card p{color:#c2d6e9;line-height:1.8}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+input,select{
+width:100%;padding:13px;margin:9px 0;
+border-radius:9px;border:1px solid #245578;
+background:#071326;color:white;
 }
-.engine-diagram svg{width:100%;height:auto}
-.tabs{display:flex;gap:10px;flex-wrap:wrap;margin:25px 0}
-.tabs button{
- padding:12px 16px;background:#111e32;color:white;
- border:1px solid #ffffff30;cursor:pointer;
+label{color:#b9d8ee;font-size:14px}
+.team{text-align:center}
+.team strong{display:block;color:white;margin:10px}
+footer{text-align:center;padding:30px;color:#8baac4;background:#080e20}
+.hidden{display:none!important}
+.pass{
+background:white;color:#10213a;padding:25px;
+border-radius:15px;text-align:center;max-width:420px;margin:25px auto;
 }
-.tabs button.active{background:#e6bd72;color:#111}
-.tab-content{
- background:#111e32;padding:25px;border-radius:8px;
- color:#b5c3d5;line-height:1.8;min-height:125px;
-}
-.quiz{max-width:700px;background:#111e32;padding:28px;border-radius:10px}
-.quiz button{
- display:block;width:100%;padding:13px;margin:10px 0;
- background:#0b1423;border:1px solid #ffffff30;
- color:white;text-align:left;cursor:pointer;
-}
-.quiz button:hover{border-color:#e6bd72}
-#feedback{color:#70d9ee;margin-top:15px}
-footer{
- padding:40px;text-align:center;color:#8595aa;
- border-top:1px solid #ffffff20;font-size:12px;
-}
-.reveal{opacity:0;transform:translateY(30px);transition:1s}
-.reveal.show{opacity:1;transform:translateY(0)}
-@media(max-width:750px){
- nav{padding:18px 5%}
- nav .navlinks{display:none}
- .hero{padding-top:140px}
- .engine-art{width:100%;right:-35%;top:38%;opacity:.3}
- h1{font-size:58px}
- section{padding:75px 6%}
-}
+.pass h2{color:#087cff;margin:10px}
+.pass p{margin:8px}
+#adminPanel{display:none}
+table{width:100%;border-collapse:collapse;margin-top:15px}
+td,th{border:1px solid #23516d;padding:10px;text-align:left}
+th{color:var(--cyan)}
+.small{font-size:12px;color:#9bb7d0}
 </style>
 </head>
 
 <body>
 
 <nav>
- <div class="logo">ORBITAL <span>/ SCIENCE</span></div>
- <div class="navlinks">
-  <a href="#about">ABOUT</a>
-  <a href="#working">WORKING</a>
-  <a href="#parts">COMPONENTS</a>
-  <a href="#quiz">QUIZ</a>
- </div>
+<div class="logo">🚀 THRUST ENGINE</div>
+<div>
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#physics">Physics</a>
+<a href="#team">Team</a>
+<a href="#visitor">Visitor Pass</a>
+<a href="#admin">Admin</a>
+</div>
 </nav>
 
-<header class="hero">
- <div class="hero-content">
-  <div class="tag">PHYSICS • SCIENCE EXHIBITION • 2026</div>
-  <h1>THE POWER<br>OF <span>JET</span><br>PROPULSION.</h1>
-  <p>
-   Discover the incredible science behind jet engines.
-   Explore how air, fuel and physics combine to produce
-   the powerful thrust that takes aircraft into the sky.
-  </p>
-  <a href="#working" class="btn">EXPLORE THE ENGINE ↗</a>
-  <button class="sound-btn" id="soundBtn">▶ START ENGINE SOUND</button>
-  <p style="margin-top:25px;font-size:11px;letter-spacing:2px">
-   VENKATESWAR ENGLISH MEDIUM SCHOOL
-  </p>
- </div>
-
- <div class="engine-art">
- <svg viewBox="0 0 900 500" xmlns="http://www.w3.org/2000/svg">
- <defs>
-  <linearGradient id="metal">
-   <stop stop-color="#f4d79b"/>
-   <stop offset=".5" stop-color="#9baec3"/>
-   <stop offset="1" stop-color="#354b66"/>
-  </linearGradient>
-  <linearGradient id="fire">
-   <stop stop-color="#fff2bd"/>
-   <stop offset=".4" stop-color="#66d9ef"/>
-   <stop offset="1" stop-color="#2877bc" stop-opacity="0"/>
-  </linearGradient>
- </defs>
- <path d="M100 248L310 211H715Q780 220 800 250Q780 280 715 289L310 289Z"
- fill="#172941" stroke="#9bb2c9" stroke-width="4"/>
- <path d="M310 211L390 170L670 205L715 215H310Z"
- fill="url(#metal)"/>
- <path d="M310 289L390 330L670 295L715 285H310Z"
- fill="#344b67" stroke="#9bb2c9" stroke-width="2"/>
- <ellipse cx="310" cy="250" rx="30" ry="40"
- fill="#0b1424" stroke="#e6bd72" stroke-width="4"/>
- <path d="M310 212V288M290 220L330 280M330 220L290 280"
- stroke="#dce8f5" stroke-width="5"/>
- <path d="M390 226H630L680 240V260L630 274H390Z"
- fill="#0b1728" stroke="#91a8c1" stroke-width="2"/>
- <path d="M430 230L450 270M470 230L490 270M510 230L530 270"
- stroke="#e6bd72" stroke-width="5"/>
- <path class="flame" d="M685 235L850 250L685 265Z" fill="url(#fire)"/>
- <path class="flame" d="M720 242L890 250L720 258"
- stroke="#74dff4" stroke-width="4"/>
- <g fill="#70d9ee">
-  <circle class="particle" cx="50" cy="238" r="4"/>
-  <circle class="particle" cx="100" cy="265" r="3"/>
-  <circle class="particle" cx="145" cy="245" r="4"/>
- </g>
- </svg>
- </div>
-</header>
+<div class="hero" id="home">
+<div>
+<div class="engine">🚀</div>
+<h1>THRUST ENGINE</h1>
+<p>Exploring the power of propulsion through Modern Physics.
+Discover how Newton's laws turn scientific principles into motion.</p>
+<p><b>VENKATESWAR ENGLISH MEDIUM SCHOOL</b></p>
+<a class="btn" href="#about">Explore Project</a>
+<a class="btn" href="#visitor">Get Visitor Pass</a>
+</div>
+</div>
 
 <section id="about">
- <div class="kicker">01 / INTRODUCTION</div>
- <h2>What is a Jet Engine?</h2>
- <p class="intro">
- A jet engine is a machine that produces thrust by accelerating
- a stream of gases backwards. It works on Newton's Third Law
- of Motion: every action has an equal and opposite reaction.
- </p>
- <div class="grid">
-  <div class="card">
-   <div class="number">01 — PRINCIPLE</div>
-   <h3>Newton's Third Law</h3>
-   <p>The engine pushes gases backwards, creating a forward reaction force called thrust.</p>
-  </div>
-  <div class="card">
-   <div class="number">02 — ENERGY</div>
-   <h3>Energy Conversion</h3>
-   <p>Chemical energy in fuel becomes thermal energy and then kinetic energy in moving gases.</p>
-  </div>
-  <div class="card">
-   <div class="number">03 — PURPOSE</div>
-   <h3>Powerful Thrust</h3>
-   <p>Thrust helps aircraft overcome drag and accelerate through the air.</p>
-  </div>
- </div>
+<h2 class="heading">ABOUT OUR PROJECT</h2>
+<div class="card">
+<h3>What is a Thrust Engine?</h3>
+<p>
+A thrust engine is a propulsion system that generates force
+by expelling mass in one direction, causing movement in the
+opposite direction. Rocket engines use this principle to
+travel through space.
+</p>
+</div>
+<div class="grid">
+<div class="card"><h3>🚀 Propulsion</h3><p>Learn how engines produce force to move rockets.</p></div>
+<div class="card"><h3>⚡ Energy</h3><p>Understand the conversion of stored energy into motion.</p></div>
+<div class="card"><h3>🌌 Space Science</h3><p>Discover how rockets travel in the vacuum of space.</p></div>
+</div>
 </section>
 
-<section id="working">
- <div class="kicker">02 / THE SCIENCE</div>
- <h2>How Does It Work?</h2>
- <p class="intro">
- A typical turbojet engine works through five main stages.
- </p>
- <div class="steps">
-  <div class="step"><b>01 / INTAKE</b><p>Air enters through the front inlet.</p></div>
-  <div class="step"><b>02 / COMPRESSION</b><p>Compressor blades increase air pressure.</p></div>
-  <div class="step"><b>03 / COMBUSTION</b><p>Fuel mixes with compressed air and burns.</p></div>
-  <div class="step"><b>04 / TURBINE</b><p>Hot gases spin the turbine blades.</p></div>
-  <div class="step"><b>05 / EXHAUST</b><p>The nozzle accelerates gases backwards to produce thrust.</p></div>
- </div>
- <div class="engine-diagram">
-  <svg viewBox="0 0 700 220">
-   <path d="M25 80H670L630 145H25Z" fill="#172a43" stroke="#9fb2c8" stroke-width="2"/>
-   <path d="M25 112H660" stroke="#70d9ee" stroke-dasharray="8 8" stroke-width="3"/>
-   <g fill="#70d9ee">
-    <path d="M70 85L95 112L70 140L80 112Z"/>
-    <path d="M115 85L140 112L115 140L125 112Z"/>
-   </g>
-   <g fill="#e6bd72">
-    <path d="M220 85L240 112L220 140L230 112Z"/>
-    <path d="M260 85L280 112L260 140L270 112Z"/>
-   </g>
-   <path d="M330 85Q390 55 430 112Q390 170 330 140Z" fill="#e6bd72"/>
-   <path d="M450 90H550V135H450Z" fill="#c77c50"/>
-   <path d="M550 90L670 112L550 135Z" fill="#70d9ee"/>
-   <g fill="white" font-size="12" text-anchor="middle">
-    <text x="80" y="50">INLET</text>
-    <text x="245" y="50">COMPRESSOR</text>
-    <text x="380" y="40">COMBUSTION</text>
-    <text x="500" y="50">TURBINE</text>
-    <text x="610" y="175">NOZZLE</text>
-   </g>
-  </svg>
-  <p style="color:#8da1ba;font-size:12px">Simplified educational diagram — not to scale.</p>
- </div>
+<section id="physics">
+<h2 class="heading">THE PHYSICS BEHIND IT</h2>
+<div class="card">
+<h3>Newton's Third Law of Motion</h3>
+<p>For every action, there is an equal and opposite reaction.</p>
+<h2 style="text-align:center;color:#00eaff;margin:25px">
+Action = Reaction
+</h2>
+<p>Hot gases are expelled backwards from the rocket nozzle.
+The rocket receives an opposite force that pushes it forward.</p>
+</div>
+<div class="card">
+<h3>Conservation of Momentum</h3>
+<p>The total momentum of an isolated system remains constant.
+The backward momentum of exhaust gases produces forward
+momentum of the rocket.</p>
+</div>
+<div class="card">
+<h3>Thrust Formula</h3>
+<p style="font-size:23px;color:#00eaff;text-align:center;margin:20px">
+F = ṁ × vₑ
+</p>
+<p>Where F is thrust, ṁ is mass flow rate and vₑ is exhaust velocity.
+This is a simplified expression; pressure effects can also contribute to thrust.</p>
+</div>
 </section>
 
-<section id="parts">
- <div class="kicker">03 / ENGINE ANATOMY</div>
- <h2>Explore Engine Components</h2>
- <p class="intro">Click on each component to discover its function.</p>
- <div class="tabs">
-  <button class="active" data-part="inlet">Air Inlet</button>
-  <button data-part="compressor">Compressor</button>
-  <button data-part="combustor">Combustion</button>
-  <button data-part="turbine">Turbine</button>
-  <button data-part="nozzle">Nozzle</button>
- </div>
- <div class="tab-content" id="partInfo">
-  <h3>Air Inlet</h3>
-  The inlet guides outside air smoothly into the engine.
- </div>
+<section id="team">
+<h2 class="heading">OUR PROJECT TEAM</h2>
+<div class="grid">
+<div class="card team"><h3>👨‍🚀 TEAM MEMBER</h3><strong>Amirt Keshav</strong></div>
+<div class="card team"><h3>👨‍🚀 TEAM MEMBER</h3><strong>Maneet Mohanty</strong></div>
+<div class="card team"><h3>👨‍🚀 TEAM MEMBER</h3><strong>Slok Sahu</strong></div>
+<div class="card team"><h3>👨‍🚀 TEAM MEMBER</h3><strong>Madhav</strong></div>
+<div class="card team"><h3>👨‍🚀 TEAM MEMBER</h3><strong>Roshan Kumar Singh</strong></div>
+</div>
 </section>
 
-<section>
- <div class="kicker">04 / REAL WORLD</div>
- <h2>Applications of Jet Engines</h2>
- <div class="grid">
-  <div class="card"><h3>Passenger Aircraft</h3><p>Turbofan engines power modern commercial aircraft.</p></div>
-  <div class="card"><h3>Military Aircraft</h3><p>High-performance aircraft use turbojet and turbofan engines.</p></div>
-  <div class="card"><h3>Space Technology</h3><p>Rocket engines differ from jets because rockets carry their own oxidizer.</p></div>
- </div>
+<section id="visitor">
+<h2 class="heading">🎟️ VISITOR PASS GENERATOR</h2>
+<div class="card">
+<h3>Register for Science Exhibition</h3>
+<label>Visitor Name</label>
+<input id="visitorName" placeholder="Enter your full name">
+<label>School / Organization</label>
+<input id="visitorSchool" placeholder="Enter school name">
+<label>Visitor Type</label>
+<select id="visitorType">
+<option>Student</option>
+<option>Teacher</option>
+<option>Parent</option>
+<option>Guest</option>
+</select>
+<button class="btn" onclick="generatePass()">Generate Pass</button>
+</div>
+<div id="passArea"></div>
 </section>
 
-<section id="quiz">
- <div class="kicker">05 / MISSION CONTROL</div>
- <h2>Test Your Knowledge</h2>
- <div class="quiz">
-  <h3>Which law explains jet engine thrust?</h3>
-  <button data-answer="wrong">A. Newton's First Law</button>
-  <button data-answer="wrong">B. Newton's Second Law</button>
-  <button data-answer="correct">C. Newton's Third Law</button>
-  <button data-answer="wrong">D. Law of Gravitation</button>
-  <div id="feedback"></div>
- </div>
-</section>
+<section id="admin">
+<h2 class="heading">👑 ADMIN DASHBOARD</h2>
+<div class="card" id="adminLogin">
+<h3>Administrator Login</h3>
+<input id="adminPin" type="password" placeholder="Enter admin PIN">
+<button class="btn" onclick="login()">Login</button>
+<p class="small">Demo PIN: 2468 (change before publishing)</p>
+</div>
 
-<section>
- <div class="kicker">06 / CONCLUSION</div>
- <h2>From Physics to Flight.</h2>
- <p class="intro">
- Jet engines demonstrate the incredible power of physics.
- Through air compression, combustion and exhaust acceleration,
- they convert fuel energy into thrust and make modern aviation possible.
- </p>
- <h3 style="color:#e6bd72">THANK YOU!</h3>
- <p style="color:#a8b4c8;margin-top:10px">
- Presented at Venkateswar English Medium School.
- </p>
+<div id="adminPanel" class="card">
+<h3>Visitor Management</h3>
+<p>Total Visitors: <b id="totalVisitors">0</b></p>
+<button class="btn" onclick="exportCSV()">Export CSV</button>
+<button class="btn" onclick="logout()">Logout</button>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>Name</th><th>School</th><th>Type</th><th>Pass ID</th></tr></thead>
+<tbody id="visitorTable"></tbody>
+</table>
+</div>
+</div>
 </section>
 
 <footer>
- ORBITAL / SCIENCE — JET ENGINE PROJECT<br><br>
- LEARN • EXPLORE • INNOVATE
+<h3 style="color:#00eaff">THRUST ENGINE</h3>
+<p>Modern Physics Science Exhibition</p>
+<p>VENKATESWAR ENGLISH MEDIUM SCHOOL</p>
+<p>Designed by Amirt Keshav, Maneet Mohanty,
+Slok Sahu, Madhav & Roshan Kumar Singh</p>
+<p style="margin-top:15px">© 2026 Science Exhibition Project</p>
 </footer>
 
 <script>
-// INTERACTIVE ENGINE COMPONENTS
-const parts={
- inlet:["Air Inlet","The inlet guides outside air smoothly into the engine."],
- compressor:["Compressor","Rotating and stationary blades compress incoming air and increase its pressure."],
- combustor:["Combustion Chamber","Fuel is sprayed into compressed air and burned, creating hot high-energy gases."],
- turbine:["Turbine","Hot gases spin turbine blades. A shaft connects the turbine to the compressor."],
- nozzle:["Exhaust Nozzle","The nozzle accelerates exhaust gases backwards to generate forward thrust."]
-};
-document.querySelectorAll("[data-part]").forEach(button=>{
- button.onclick=()=>{
-  document.querySelectorAll("[data-part]").forEach(b=>b.classList.remove("active"));
-  button.classList.add("active");
-  const p=parts[button.dataset.part];
-  document.getElementById("partInfo").innerHTML="<h3>"+p[0]+"</h3>"+p[1];
- };
-});
+let visitors = JSON.parse(localStorage.getItem("thrustVisitors") || "[]");
 
-// QUIZ
-document.querySelectorAll("[data-answer]").forEach(button=>{
- button.onclick=()=>{
-  document.getElementById("feedback").textContent=
-   button.dataset.answer==="correct"
-   ?"✓ Correct! Newton's Third Law explains the action-reaction principle."
-   :"✗ Try again! Think about action and reaction.";
- };
-});
-
-// SCROLL REVEAL
-const observer=new IntersectionObserver(entries=>{
- entries.forEach(entry=>{
-  if(entry.isIntersecting){
-   entry.target.classList.add("show");
-   observer.unobserve(entry.target);
-  }
- });
-},{threshold:.12});
-document.querySelectorAll(".card,.step,.engine-diagram").forEach(el=>{
- el.classList.add("reveal");
- observer.observe(el);
-});
-
-// SYNTHESIZED JET ENGINE SOUND
-let audio=null,master=null,noise=null,osc=null,soundPlaying=false;
-const soundButton=document.getElementById("soundBtn");
-
-function startSound(){
- const AC=window.AudioContext||window.webkitAudioContext;
- if(!AC)return;
- if(!audio)audio=new AC();
- if(audio.state==="suspended")audio.resume();
-
- master=audio.createGain();
- master.gain.value=0;
- master.connect(audio.destination);
-
- // Air-rush noise
- const buffer=audio.createBuffer(1,audio.sampleRate*2,audio.sampleRate);
- const data=buffer.getChannelData(0);
- for(let i=0;i<data.length;i++)data[i]=Math.random()*2-1;
-
- noise=audio.createBufferSource();
- noise.buffer=buffer;
- noise.loop=true;
-
- const filter=audio.createBiquadFilter();
- filter.type="lowpass";
- filter.frequency.value=550;
-
- const noiseVolume=audio.createGain();
- noiseVolume.gain.value=.18;
-
- noise.connect(filter);
- filter.connect(noiseVolume);
- noiseVolume.connect(master);
- noise.start();
-
- // Turbine hum
- osc=audio.createOscillator();
- osc.type="sawtooth";
- osc.frequency.value=75;
-
- const toneFilter=audio.createBiquadFilter();
- toneFilter.type="lowpass";
- toneFilter.frequency.value=220;
-
- const toneVolume=audio.createGain();
- toneVolume.gain.value=.035;
-
- osc.connect(toneFilter);
- toneFilter.connect(toneVolume);
- toneVolume.connect(master);
- osc.start();
-
- master.gain.setTargetAtTime(.45,audio.currentTime,.8);
-
- soundPlaying=true;
- soundButton.textContent="■ STOP ENGINE SOUND";
+function saveVisitors(){
+localStorage.setItem("thrustVisitors",JSON.stringify(visitors));
 }
 
-function stopSound(){
- if(!audio||!master)return;
- master.gain.setTargetAtTime(0,audio.currentTime,.15);
- const oldNoise=noise,oldOsc=osc;
- setTimeout(()=>{
-  try{oldNoise.stop();oldOsc.stop()}catch(e){}
- },700);
- soundPlaying=false;
- soundButton.textContent="▶ START ENGINE SOUND";
+function generatePass(){
+let name=document.getElementById("visitorName").value.trim();
+let school=document.getElementById("visitorSchool").value.trim();
+let type=document.getElementById("visitorType").value;
+
+if(!name || !school){
+alert("Please enter visitor name and school.");
+return;
 }
 
-soundButton.onclick=()=>{
- if(soundPlaying)stopSound();
- else startSound();
-};
+let id="TE-"+Date.now().toString().slice(-8);
+
+let visitor={name,school,type,id,date:new Date().toLocaleDateString()};
+visitors.push(visitor);
+saveVisitors();
+
+document.getElementById("passArea").innerHTML=`
+<div class="pass" id="printPass">
+<h2>🚀 THRUST ENGINE</h2>
+<h3>OFFICIAL VISITOR PASS</h3>
+<p><b>${escapeHTML(name)}</b></p>
+<p>${escapeHTML(school)}</p>
+<p>Visitor Type: ${escapeHTML(type)}</p>
+<p>Pass ID: <b>${id}</b></p>
+<p>Date: ${visitor.date}</p>
+<p class="small">VENKATESWAR ENGLISH MEDIUM SCHOOL</p>
+</div>
+<button class="btn" onclick="window.print()">Print Pass</button>
+`;
+}
+
+function escapeHTML(s){
+return s.replace(/[&<>"']/g,c=>({
+"&":"&amp;","<":"&lt;",">":"&gt;",
+'"':"&quot;","'":"&#39;"
+}[c]));
+}
+
+function login(){
+if(document.getElementById("adminPin").value==="2468"){
+document.getElementById("adminLogin").style.display="none";
+document.getElementById("adminPanel").style.display="block";
+renderVisitors();
+}else{
+alert("Incorrect PIN");
+}
+}
+
+function logout(){
+document.getElementById("adminPanel").style.display="none";
+document.getElementById("adminLogin").style.display="block";
+document.getElementById("adminPin").value="";
+}
+
+function renderVisitors(){
+document.getElementById("totalVisitors").textContent=visitors.length;
+document.getElementById("visitorTable").innerHTML=visitors.map(v=>`
+<tr>
+<td>${escapeHTML(v.name)}</td>
+<td>${escapeHTML(v.school)}</td>
+<td>${escapeHTML(v.type)}</td>
+<td>${escapeHTML(v.id)}</td>
+</tr>`).join("");
+}
+
+function exportCSV(){
+let rows=[["Name","School","Type","Pass ID","Date"],
+...visitors.map(v=>[v.name,v.school,v.type,v.id,v.date])];
+
+let csv=rows.map(row=>row.map(x=>
+'"'+String(x).replace(/"/g,'""')+'"'
+).join(",")).join("\n");
+
+let blob=new Blob([csv],{type:"text/csv"});
+let url=URL.createObjectURL(blob);
+let a=document.createElement("a");
+a.href=url;a.download="thrust-engine-visitors.csv";
+a.click();URL.revokeObjectURL(url);
+}
 </script>
-
 </body>
 </html>
